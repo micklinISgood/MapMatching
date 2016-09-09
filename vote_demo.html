@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html manifest="antrack.appcache">
+	<head> 
+	<title>ANTrack</title> 
+	<meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+ 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+	<link rel="stylesheet" href="css/MarkerCluster.css" />
+	<link rel="stylesheet" href="css/MarkerCluster.Default.css" />	
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css" />
+	<link rel="stylesheet" href="css/leaflet.usermarker.css" />
+	<link rel="stylesheet" href="css/leaflet.viecenter.css" />
+	<link rel="stylesheet" href="css/overlay-basic.css" />
+	<link rel="stylesheet" href="css/main.css?v=31" />
+	
+	<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script> -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+	<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script type="text/javascript" src="js/leaflet.markercluster.js"></script>
+	<script type="text/javascript" src="js/leaflet.usermarker.js"></script>
+	<script type="text/javascript" src="js/leaflet.viewcenter.js"></script>
+	<script type="text/javascript" src="js/oms.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<!-- <script type="text/javascript" src="js/Google.js"></script> -->	
+	<script type="text/javascript" src="js/vote.demo.js"></script>
+  <style>
+  </style>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">  
+</head> 
+<body> 
+
+<!-- map recorder page start -->
+<div data-role="page" class="pages" id="home">
+	<div data-role="header" id="header">
+		<!--a href="#" class="showMenu">Info</a-->
+		<h1>GPS map-matching questionnaire</h1>
+		
+      
+	</div><!-- /header -->
+
+
+<fieldset class="ui-grid-b" id="myForm">
+	<legend>By looking at a map and surrounding roads, I can find my way to my destination.</legend>
+
+  <div class="ui-block-a">
+  <label for="radio2"  >seldom</label><input type="radio" id="radio2" onclick="handleClick(this);" name="radioName" value="50"/>
+  </div>   
+   <div class="ui-block-b">
+  <label for="radio3" >usually</label><input type="radio" id="radio3" onclick="handleClick(this);"  name="radioName" value="70"/>
+  </div>
+ 
+   <div class="ui-block-c">
+  <label for="radio5" >always</label><input type="radio" id="radio5" onclick="handleClick(this);"  name="radioName" value="90"/>
+  </div>
+
+</fieldset>
+
+
+<fieldset class="ui-grid-d" id="accuracy">
+	<legend id="question"> The predicted path is more accurate for the real path, compared to the GPS path: (1/20) </legend>
+ <div class="ui-block-a" >
+ 
+  <label for="acc1" >80%</label><input type="radio" id="acc1" onclick="accClick(this);" name="radioacc" value="1"/>
+   </div>
+  <div class="ui-block-b">
+  <label for="acc2" >85%</label><input type="radio" id="acc2" onclick="accClick(this);" name="radioacc" value="2"/>
+  </div>   
+   <div class="ui-block-c">
+  <label for="acc3" >90%</label><input type="radio" id="acc3" onclick="accClick(this);"  name="radioacc" value="3"/>
+  </div>
+  <div class="ui-block-d">
+  <label for="acc4" >95%</label><input type="radio" id="acc4" onclick="accClick(this);"  name="radioacc" value="4"/>
+  </div>
+  <div class="ui-block-e">
+  <label for="acc5" >99%</label><input type="radio" id="acc5" onclick="accClick(this);"  name="radioacc" value="5"/>
+  </div>
+
+</fieldset>
+
+
+	
+	
+<div data-role="content" style="padding:0em;">
+
+		<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:0em;">
+
+			<div id="map_canvas" style="position:relative;top:0px;bottom:0px;left:0;right:0;"></div>
+		</div>
+	</div><!-- /content -->
+	
+</div><!-- /page -->
+<!-- map recorder page end -->
+
+
+<div class="simple_overlay" id="picturebox">
+<center><img id="pbox" /></center>
+</div>
+<div class="modal" id="closebox">
+  <h2>Thank you!</h2> 
+  <p>Any questions? <br/>Contact me.<br/>Mick <br/>(02)2788-3799#1376</p>
+</div>
+<div class="modal" id="expiredbox">
+</div>
+<div class="loading_modal" id="loadingbox">
+  <center><img src="images/ajax-loader.gif" /></center>	
+</div>
+</body>
+</html>
+
